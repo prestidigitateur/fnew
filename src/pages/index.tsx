@@ -1,7 +1,10 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import { useCallback, useState } from "react";
 
 const Home: NextPage = () => {
+  const [show, setShow] = useState(false);
+  const reveal = useCallback(() => setShow((p) => !p), []);
   return (
     <div className="h-screen w-screen flex flex-col">
       <Head>
@@ -10,7 +13,10 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
+      <button data-testid="show-btn" onClick={reveal}>
+        {show ? "Show" : "Hide"}
+      </button>
+      {show && <h1>hidden content</h1>}
     </div>
   );
 };
