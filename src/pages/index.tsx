@@ -14,7 +14,7 @@ const Home: NextPage = () => {
       </Head>
       <h1>Hello World!</h1>
       <button data-testid="show-btn" onClick={reveal}>
-        {show ? "Show" : "Hide"}
+        {show ? "Hide" : "Show"}
       </button>
       {show && <h1>hidden content</h1>}
     </div>
